@@ -72,8 +72,8 @@ class PID_ctrl:
             error_dot+=(self.history[i][0] - self.history[i-1][0])/dt
             
             
-        error_dot/=len(self.history)
-        dt_avg/=len(self.history)
+        error_dot/=(len(self.history)-1)
+        dt_avg/=(len(self.history)-1)
         
         
         sum_=0
@@ -90,13 +90,13 @@ class PID_ctrl:
         
         
         if self.type == P:
-            return self.kp * latest_error
+            return #(.....)
         
         elif self.type == PD:
-            return self.kp * latest_error + self.kv * error_dot
+            return #(.....)
         
         elif self.type == PI:
-            return self.kp * latest_error +  self.ki * error_int
+            return #(.....)
         
         elif self.type == PID: 
-            return self.kp * latest_error + self.kv * error_dot + self.ki * error_int
+            return #(.....)
