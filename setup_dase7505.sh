@@ -1,3 +1,4 @@
+#!/bin/sh
 
 set -e
 
@@ -75,18 +76,9 @@ echo "--------------------------------"
 sleep 1
 
 
-if [ -d "/home/$USER/robohub" ]
-then
-    echo "already made the glone"
-else
-
-   mkdir /home/$USER/robohub && cd /home/$USER/robohub && git clone https://git.uwaterloo.ca/robohub/turtlebot4.git
-
-fi
-
+# Simulation uses the ROS packages below and default DDS discovery.
+# No external robot networking profile is required.
 sudo apt install -y ros-humble-rmw-fastrtps-cpp
-
-cp /home/$USER/robohub/turtlebot4/configs/.fastdds.xml /home/$USER/
 
 sleep 1
 
@@ -94,10 +86,11 @@ sudo apt install -y ros-humble-turtlebot4-desktop
 
 sleep 1
 
-sudo apt install -y ros-humble-turtlebot3*
+sudo apt install -y 'ros-humble-turtlebot3*'
 
 
 echo "--------------------------------"
-echo "....turtlebot enviornment is correctly set!...."
+echo "....turtlebot environment is correctly set!...."
 echo "--------------------------------"
+echo "Run 'source ~/.bashrc' in your terminal to activate the ROS environment."
 
