@@ -7,7 +7,9 @@ In this repository, setup instructions and lab exercises are available in the `s
 
 ## ROS 2 installation
 
-For Ubuntu 22.04 and ROS 2 Humble, follow the [installation and recovery instructions on the setup branch](https://github.com/SAS-HKU/DASE7505_student/tree/setup). The updated `setup_dase7505.sh` installs the simulation packages without a Waterloo account or external `.fastdds.xml` file.
+For **Ubuntu 22.04 amd64 (Intel/AMD)** and ROS 2 Humble, follow the [installation and recovery instructions on the setup branch](https://github.com/SAS-HKU/DASE7505_student/tree/setup). The updated `setup_dase7505.sh` installs the simulation packages without a Waterloo account or external `.fastdds.xml` file and verifies the required Gazebo Classic packages before reporting success.
+
+Check `dpkg --print-architecture` inside Ubuntu before installing. If it reports `arm64`, keep your existing VM and use an Intel/AMD Ubuntu 22.04 lab PC or remote desktop into one. Run both installation and simulation on that machine. The standard ARM64 repositories lack the Gazebo Classic simulation packages used by this lab; reinstalling ROS in the same ARM64 VM will not resolve this. The installer checks the platform before making changes.
 
 If you already cloned this repository, run the following in its directory:
 
